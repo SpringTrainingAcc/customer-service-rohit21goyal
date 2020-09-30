@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.customer.ms.dao.CustomerDAO;
 import com.customer.ms.model.Customer;
+import com.customer.ms.model.CustomerM;
+import com.customer.ms.service.CustomerService;
 
 @RestController
 public class CustomerController {
@@ -27,6 +29,9 @@ public class CustomerController {
 	
 	@Autowired
 	private CustomerDAO cusDAO;
+	
+	@Autowired
+	private CustomerService cusService;
 	
 	@RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public Customer getCustomer(@PathVariable("id") String id) {
@@ -56,5 +61,32 @@ public class CustomerController {
 		return cusDAO.updateCustomer(cus);
 		
 	}
+	
+	@GetMapping("/mongoCustomers")
+	public List<CustomerM> getMongoCustomers() {
+		return cusService.findAll();
+	}
 
+	@PostMapping("/mongoCustomer")
+	public CustomerM addMongoCustomer(@RequestBody CustomerM cus) {
+		return cusService.addCustomer(cus);
+	}
+	
+	@RequestMapping(value = "/mongoCustomer/{id}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public CustomerM getMongoCustomer(@PathVariable("id") String id) {
+		return cusService.findById(id);
+		
+	}
+	
+	@DeleteMapping("/mongoCustomer/{id}")
+	public String deleteMongoCustomer(@PathVariable("id") String id) {
+		return cusService.deleteById(id);
+	}
+	
+	@PostMapping("/updateMongoCustomer")
+	public String updateMongoCustomer(@RequestBody CustomerM cus) {
+		return cusService.updateCustomer(cus);
+		
+	}
+	
 }
