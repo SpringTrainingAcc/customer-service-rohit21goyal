@@ -1,7 +1,7 @@
 def args = [:]
 args.CLUSTER_NAME = ""
 args.PROJECT_NAME = "cloudnative"
-args.SERVICE_NAME = "customer-service_rohit21goyal"
+args.SERVICE_NAME = "customer-service-rohit21goyal"
 args.SERVICE_VERSION = "0.0.1-SNAPSHOT"
 
 
