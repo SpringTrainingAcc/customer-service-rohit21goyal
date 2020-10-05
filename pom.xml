@@ -11,7 +11,7 @@
 	<groupId>com.customer</groupId>
 	<artifactId>customer-service_rohit21goyal</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>customer-service_rohit21goyal</name>
+	<name>customer-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -22,6 +22,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 
 		<dependency>
@@ -34,10 +39,6 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 	</dependencies>
 
